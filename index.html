@@ -1,111 +1,377 @@
 
-doctype html>
+
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ABOOD AI BOX SNIPER</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b16">
+<title>ABOOD AI BOX SNIPER VIP</title>
 <style>
-body{background:#0b1020;color:#fff;font-family:Arial,sans-serif;padding:15px}
-h2{color:#e8bd62}
-.box{background:#172238;padding:15px;border-radius:12px;margin:12px 0}
-button{background:#e8bd62;border:0;padding:12px;border-radius:8px;margin:5px;font-weight:bold}
-textarea{width:100%;height:130px;background:#071326;color:white;padding:8px;box-sizing:border-box}
-input{width:65px;padding:7px}
-#result{line-height:2;overflow-wrap:anywhere}
+:root{
+--bg:#080b16;--card:#111a2b;--line:#263550;
+--gold:#edbd59;--blue:#55a9ff;
+--green:#20d69b;--red:#ff6078;
+--text:#edf3ff;--muted:#92a3bd
+}
+*{box-sizing:border-box}
+body{
+margin:0;background:var(--bg);color:var(--text);
+font-family:Arial,sans-serif
+}
+header{
+padding:20px;background:linear-gradient(120deg,#17243b,#080b16);
+border-bottom:1px solid var(--line)
+}
+.brand{font-size:23px;font-weight:900;color:var(--gold)}
+.subtitle{font-size:12px;color:var(--muted);margin-top:7px}
+.status{color:var(--green);font-size:12px;margin-top:12px}
+nav{
+display:flex;gap:8px;overflow:auto;padding:12px;
+background:#0d1422
+}
+nav button{
+background:#19263b;color:white;border:1px solid var(--line);
+padding:10px 15px;border-radius:9px;white-space:nowrap
+}
+main{max-width:1200px;margin:auto;padding:14px}
+.grid{
+display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+gap:12px
+}
+.card{
+background:linear-gradient(145deg,#151f32,#0e1523);
+border:1px solid var(--line);border-radius:14px;
+padding:15px;margin-bottom:12px
+}
+h2{font-size:16px;margin:0 0 14px;color:var(--gold)}
+label{display:block;font-size:12px;color:var(--muted);margin-bottom:7px}
+input,select,textarea{
+width:100%;padding:12px;background:#080f1d;
+color:white;border:1px solid var(--line);
+border-radius:8px;margin-bottom:12px
+}
+textarea{height:150px;direction:ltr;text-align:left}
+button{cursor:pointer;font-weight:bold}
+.action{
+background:linear-gradient(120deg,#f5d17d,#bd862d);
+color:#17120a;border:0;border-radius:9px;
+padding:13px 17px
+}
+.secondary{
+background:#1b2b43;color:white;border:1px solid var(--line);
+border-radius:9px;padding:12px
+}
+.metrics{
+display:grid;grid-template-columns:repeat(3,1fr);gap:8px
+}
+.metric{
+background:#080f1d;padding:13px;border-radius:10px;
+border:1px solid var(--line)
+}
+.metric small{color:var(--muted);font-size:11px}
+.metric strong{display:block;font-size:22px;margin-top:8px}
+canvas{
+width:100%;height:230px;background:#080f1d;
+border:1px solid var(--line);border-radius:10px
+}
+.result{
+background:#080f1d;border:1px solid var(--line);
+border-radius:10px;padding:14px;line-height:2;
+min-height:100px
+}
+.green{color:var(--green)}
+.red{color:var(--red)}
+.gold{color:var(--gold)}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:25px}
+@media(max-width:650px){
+.grid{grid-template-columns:1fr}
+.metric strong{font-size:18px}
+}
 </style>
 </head>
 <body>
-<h2>ABOOD AI — BOX SNIPER OTC PRO</h2>
-<p>محرك تحليل القمم والقيعان ورفض الشموع. لا ينفذ صفقات.</p>
 
-<div class="box">
-عدد الشموع يساراً: <input id="L" type="number" value="3" min="1">
-عدد الشموع يميناً: <input id="R" type="number" value="3" min="1">
+<header>
+<div class="brand">👑 ABOOD AI BOX SNIPER VIP</div>
+<div class="subtitle">منصة التحليل الذكي للأسواق المالية</div>
+<div class="status">● محرك التحليل المحلي جاهز</div>
+</header>
+
+<nav>
+<button onclick="show('home')">الرئيسية</button>
+<button onclick="show('analysis')">التحليل</button>
+<button onclick="show('data')">بيانات الشموع</button>
+<button onclick="show('risk')">إدارة المخاطر</button>
+</nav>
+
+<main>
+
+<section id="home">
+<div class="card">
+<h2>لوحة التحكم الرئيسية</h2>
+<div class="grid">
+<div>
+<label>السوق</label>
+<select id="market">
+<option>XAUUSD - GOLD</option>
+<option>EURUSD</option>
+<option>GBPUSD</option>
+<option>USDJPY</option>
+<option>OTC</option>
+</select>
+</div>
+<div>
+<label>الإطار الزمني</label>
+<select id="tf">
+<option>1 دقيقة</option>
+<option>5 دقائق</option>
+<option>15 دقيقة</option>
+<option>30 دقيقة</option>
+<option>1 ساعة</option>
+<option>4 ساعات</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>محرك الذكاء الاصطناعي للتحليل</h2>
+<div class="metrics">
+<div class="metric"><small>عدد الشموع</small><strong id="count">0</strong></div>
+<div class="metric"><small>القمم</small><strong id="highs">0</strong></div>
+<div class="metric"><small>القيعان</small><strong id="lows">0</strong></div>
+</div>
+</div>
+
+<div class="card">
+<h2>مخطط حركة السعر</h2>
+<canvas id="chart" width="900" height="300"></canvas>
+</div>
+
+<div class="card">
+<h2>نتيجة التحليل</h2>
+<div id="result" class="result">
+بانتظار إدخال بيانات الشموع وتشغيل المحرك.
+</div>
+</div>
+</section>
+
+<section id="analysis">
+<div class="card">
+<h2>محركات التحليل الفني</h2>
+<div class="grid">
+<div class="metric"><small>محرك القمم والقيعان</small><strong class="gold">SWING</strong></div>
+<div class="metric"><small>محرك رفض الشموع</small><strong class="gold">REJECTION</strong></div>
+<div class="metric"><small>اتجاه الحركة</small><strong id="trend">—</strong></div>
+<div class="metric"><small>شموع الرفض</small><strong id="rejectCount">0</strong></div>
+</div>
+</div>
+</section>
+
+<section id="data">
+<div class="card">
+<h2>إدخال بيانات OHLC</h2>
+<p style="font-size:12px;color:var(--muted)">
+الترتيب: الوقت، الافتتاح، الأعلى، الأدنى، الإغلاق.
+كل شمعة في سطر مستقل.
+</p>
+<textarea id="candles" placeholder="time,open,high,low,close"></textarea>
+<button class="secondary" onclick="demo()">بيانات تجريبية</button>
+<button class="secondary" onclick="clearData()">مسح البيانات</button>
+<button class="action" onclick="analyze()">تشغيل المحركين</button>
+</div>
+</section>
+
+<section id="risk">
+<div class="card">
+<h2>إدارة المخاطر</h2>
+<label>رأس المال بالدولار</label>
+<input id="capital" type="number" value="500">
+<label>نسبة المخاطرة %</label>
+<input id="riskPercent" type="number" value="1" step="0.1">
+<button class="action" onclick="riskCalc()">احسب المخاطرة</button>
+<div id="riskResult" class="result">أدخل رأس المال ونسبة المخاطرة.</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+ABOOD AI BOX SNIPER VIP © 2026
 <br><br>
-نسبة الذيل للجسم: <input id="ratio" type="number" value="1.8" step=".1">
-</div>
-
-<div class="box">
-<p>أدخل بيانات الشموع بالترتيب: الوقت، الافتتاح، الأعلى، الأدنى، الإغلاق.</p>
-<textarea id="data" placeholder="time,open,high,low,close"></textarea>
-<button onclick="demo()">بيانات تجريبية</button>
-<button onclick="run()">تشغيل المحركين</button>
-</div>
-
-<div class="box" id="result">بانتظار البيانات.</div>
+منصة تحليل ومساعدة على اتخاذ القرار فقط.
+لا تنفذ صفقات ولا تضمن الأرباح.
+</footer>
 
 <script>
-function demo(){
-var a=[
-[100,101,99,100.5],[100.5,102,100,101.5],
-[101.5,104,101,103],[103,103.5,101,101.5],
-[101.5,102,99,100],[100,101,98,99],
-[99,100,97,98],[98,101,97.5,100.5],
-[100.5,103,100,102],[102,102.5,100,101],
-[101,104,100.5,103.5],[103.5,104,102,102.5],
-[102.5,103,100,100.5],[100.5,101,98,99],
-[99,100,97,98.5],[98.5,102,98,101],
-[101,105,100,104],[104,104.5,102,103],
-[103,103.5,101,101.5],[101.5,102,99,100]
+function show(id){
+document.querySelectorAll('main section').forEach(s=>s.style.display='none');
+document.getElementById(id).style.display='block';
+}
+show('home');
+
+const sample=[
+["09:00",100,102,99,101],
+["09:01",101,103,100,102],
+["09:02",102,105,101,104],
+["09:03",104,104.5,102,102.5],
+["09:04",102.5,103,100,101],
+["09:05",101,102,98,99],
+["09:06",99,100,97,98],
+["09:07",98,102,97.5,101],
+["09:08",101,104,100,103],
+["09:09",103,104,101,102],
+["09:10",102,106,101,105],
+["09:11",105,105.5,103,103.5],
+["09:12",103.5,104,101,102],
+["09:13",102,103,99,100],
+["09:14",100,101,98,99],
+["09:15",99,103,98,102]
 ];
-var s="time,open,high,low,close\n";
-for(var i=0;i<a.length;i++)
-s+="شمعة "+(i+1)+","+a[i].join(",")+"\n";
-document.getElementById("data").value=s;
+
+function demo(){
+document.getElementById('candles').value=
+"time,open,high,low,close\n"+
+sample.map(x=>x.join(',')).join('\n');
+analyze();
 }
-function run(){
+
+function clearData(){
+document.getElementById('candles').value='';
+document.getElementById('result').textContent='تم مسح البيانات.';
+document.getElementById('count').textContent='0';
+document.getElementById('highs').textContent='0';
+document.getElementById('lows').textContent='0';
+document.getElementById('rejectCount').textContent='0';
+draw([]);
+}
+
+function parse(){
+let lines=document.getElementById('candles').value.trim().split(/\n/);
+let data=[];
+lines.forEach((line,i)=>{
+let p=line.trim().split(/[,\t;]+/);
+if(i===0 && isNaN(Number(p[1])))return;
+if(p.length<5)return;
+let v=p.slice(-4).map(Number);
+if(v.some(x=>!Number.isFinite(x)))return;
+let [o,h,l,c]=v;
+if(h<Math.max(o,c,l)||l>Math.min(o,c))return;
+data.push({time:p.slice(0,-4).join(','),o,h,l,c});
+});
+return data;
+}
+
+function analyze(){
 try{
-var lines=document.getElementById("data").value.trim().split(/\n/);
-var a=[];
-for(var i=1;i<lines.length;i++){
-var p=lines[i].split(",");
-if(p.length<5)continue;
-var n=p.slice(-4).map(Number);
-if(n.some(function(x){return !isFinite(x);}))continue;
-a.push({time:p.slice(0,-4).join(","),o:n[0],h:n[1],l:n[2],c:n[3]});
-}
-if(a.length<10)throw Error("أدخل 10 شموع صحيحة على الأقل.");
-var L=Number(document.getElementById("L").value);
-var R=Number(document.getElementById("R").value);
-var ratio=Number(document.getElementById("ratio").value);
-var highs=[],lows=[],rejects=[];
-for(i=L;i<a.length-R;i++){
-var hi=true,lo=true;
-for(var j=i-L;j<i+R+1;j++){
+let a=parse();
+if(a.length<5)throw Error('أدخل خمس شموع صحيحة على الأقل.');
+
+let highs=[],lows=[],rejects=[];
+let L=3,R=3,ratio=1.8;
+
+for(let i=L;i<a.length-R;i++){
+let hi=true,lo=true;
+for(let j=i-L;j<=i+R;j++){
 if(j===i)continue;
 if(a[i].h<=a[j].h)hi=false;
 if(a[i].l>=a[j].l)lo=false;
 }
-if(hi)highs.push({i:i,p:a[i].h});
-if(lo)lows.push({i:i,p:a[i].l});
+if(hi)highs.push(i);
+if(lo)lows.push(i);
 }
-for(i=0;i<a.length;i++){
-var c=a[i],body=Math.abs(c.c-c.o);
-var range=c.h-c.l;
-if(body===0||range===0)continue;
-var upper=c.h-Math.max(c.o,c.c);
-var lower=Math.min(c.o,c.c)-c.l;
-if(c.c>c.o&&lower/body>=ratio&&lower/range>=.4)
-rejects.push("رفض صاعد عند "+c.time);
-if(c.c<c.o&&upper/body>=ratio&&upper/range>=.4)
-rejects.push("رفض هابط عند "+c.time);
+
+a.forEach((c,i)=>{
+let body=Math.abs(c.c-c.o);
+if(body===0)return;
+let upper=c.h-Math.max(c.o,c.c);
+let lower=Math.min(c.o,c.c)-c.l;
+if(lower/body>=ratio && c.c>c.o)
+rejects.push({i,type:'رفض صاعد'});
+if(upper/body>=ratio && c.c<c.o)
+rejects.push({i,type:'رفض هابط'});
+});
+
+let last=a[a.length-1];
+let trend=last.c>last.o?'صاعد':'هابط';
+
+document.getElementById('count').textContent=a.length;
+document.getElementById('highs').textContent=highs.length;
+document.getElementById('lows').textContent=lows.length;
+document.getElementById('rejectCount').textContent=rejects.length;
+document.getElementById('trend').textContent=trend;
+
+let out='<b>اكتمل التحليل</b><br>';
+out+='عدد الشموع: '+a.length+'<br>';
+out+='القمم المكتشفة: '+highs.length+'<br>';
+out+='القيعان المكتشفة: '+lows.length+'<br>';
+out+='شموع الرفض: '+rejects.length+'<br>';
+out+='اتجاه آخر شمعة: '+trend+'<br><br>';
+out+='<b>تفاصيل الرفض:</b><br>';
+out+=rejects.length?
+rejects.map(x=>x.type+' — '+a[x.i].time).join('<br>'):
+'لا توجد شموع رفض واضحة.';
+out+='<br><br><span class="gold">هذه قراءة فنية للبيانات المدخلة وليست إشارة تداول مؤكدة.</span>';
+
+document.getElementById('result').innerHTML=out;
+draw(a,highs,lows);
+
+}catch(e){
+document.getElementById('result').textContent=e.message;
 }
-var out="<h3>نتيجة التحليل</h3>";
-out+="عدد الشموع: "+a.length+"<br>";
-out+="القمم المكتشفة: "+highs.length+"<br>";
-out+="القيعان المكتشفة: "+lows.length+"<br>";
-out+="شموع الرفض: "+rejects.length+"<hr>";
-out+="<b>القمم:</b><br>";
-highs.forEach(function(x){out+="سعر "+x.p+" — الشمعة "+(x.i+1)+"<br>";});
-out+="<b>القيعان:</b><br>";
-lows.forEach(function(x){out+="سعر "+x.p+" — الشمعة "+(x.i+1)+"<br>";});
-out+="<b>الرفض:</b><br>";
-rejects.forEach(function(x){out+=x+"<br>";});
-out+="<hr><b>تنبيه:</b> هذه نتائج تحليل بيانات مدخلة وليست توصية دخول.";
-document.getElementById("result").innerHTML=out;
-}catch(e){document.getElementById("result").innerHTML=e.message;}
 }
+
+function draw(a,highs=[],lows=[]){
+let canvas=document.getElementById('chart');
+let ctx=canvas.getContext('2d');
+let w=canvas.width,h=canvas.height;
+ctx.clearRect(0,0,w,h);
+ctx.strokeStyle='#263550';
+for(let y=30;y<h;y+=45){
+ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();
+}
+if(!a.length)return;
+let min=Math.min(...a.map(x=>x.l));
+let max=Math.max(...a.map(x=>x.h));
+let pad=(max-min)*.1||1;
+min-=pad;max+=pad;
+let y=v=>h-15-(v-min)/(max-min)*(h-30);
+let step=w/a.length;
+a.forEach((c,i)=>{
+let x=i*step+step/2;
+let color=c.c>=c.o?'#20d69b':'#ff6078';
+ctx.strokeStyle=color;ctx.fillStyle=color;
+ctx.beginPath();ctx.moveTo(x,y(c.h));ctx.lineTo(x,y(c.l));ctx.stroke();
+let top=y(Math.max(c.o,c.c));
+let bottom=y(Math.min(c.o,c.c));
+ctx.fillRect(x-step*.25,top,step*.5,Math.max(2,bottom-top));
+});
+highs.forEach(i=>{
+ctx.fillStyle='#edbd59';
+ctx.beginPath();ctx.arc(step*i+step/2,y(a[i].h)-8,4,0,Math.PI*2);ctx.fill();
+});
+lows.forEach(i=>{
+ctx.fillStyle='#55a9ff';
+ctx.beginPath();ctx.arc(step*i+step/2,y(a[i].l)+8,4,0,Math.PI*2);ctx.fill();
+});
+}
+
+function riskCalc(){
+let capital=Number(document.getElementById('capital').value);
+let percent=Number(document.getElementById('riskPercent').value);
+if(capital<=0||percent<=0||percent>100){
+document.getElementById('riskResult').textContent='تحقق من القيم المدخلة.';
+return;
+}
+let amount=capital*percent/100;
+document.getElementById('riskResult').innerHTML=
+'رأس المال: '+capital.toFixed(2)+' $<br>'+
+'المخاطرة المحددة: '+percent+'%<br>'+
+'<b class="gold">مبلغ المخاطرة: '+amount.toFixed(2)+' $</b>';
+}
+
+draw([]);
 </script>
 </body>
 </html>
