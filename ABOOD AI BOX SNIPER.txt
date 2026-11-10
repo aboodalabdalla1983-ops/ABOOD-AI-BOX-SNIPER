@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ABOOD AI BOX SNIPER</title>
+<style>
+body{background:#0b1020;color:#fff;font-family:Arial,sans-serif;padding:15px}
+h2{color:#e8bd62}
+.box{background:#172238;padding:15px;border-radius:12px;margin:12px 0}
+button{background:#e8bd62;border:0;padding:12px;border-radius:8px;margin:5px;font-weight:bold}
+textarea{width:100%;height:130px;background:#071326;color:white;padding:8px;box-sizing:border-box}
+input{width:65px;padding:7px}
+#result{line-height:2;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<h2>ABOOD AI — BOX SNIPER OTC PRO</h2>
+<p>محرك تحليل القمم والقيعان ورفض الشموع. لا ينفذ صفقات.</p>
+
+<div class="box">
+عدد الشموع يساراً: <input id="L" type="number" value="3" min="1">
+عدد الشموع يميناً: <input id="R" type="number" value="3" min="1">
+<br><br>
+نسبة الذيل للجسم: <input id="ratio" type="number" value="1.8" step=".1">
+</div>
+
+<div class="box">
+<p>أدخل بيانات الشموع بالترتيب: الوقت، الافتتاح، الأعلى، الأدنى، الإغلاق.</p>
+<textarea id="data" placeholder="time,open,high,low,close"></textarea>
+<button onclick="demo()">بيانات تجريبية</button>
+<button onclick="run()">تشغيل المحركين</button>
+</div>
+
+<div class="box" id="result">بانتظار البيانات.</div>
+
+<script>
+function demo(){
+var a=[
+[100,101,99,100.5],[100.5,102,100,101.5],
+[101.5,104,101,103],[103,103.5,101,101.5],
+[101.5,102,99,100],[100,101,98,99],
+[99,100,97,98],[98,101,97.5,100.5],
+[100.5,103,100,102],[102,102.5,100,101],
+[101,104,100.5,103.5],[103.5,104,102,102.5],
+[102.5,103,100,100.5],[100.5,101,98,99],
+[99,100,97,98.5],[98.5,102,98,101],
+[101,105,100,104],[104,104.5,102,103],
+[103,103.5,101,101.5],[101.5,102,99,100]
+];
+var s="time,open,high,low,close\n";
+for(var i=0;i<a.length;i++)
+s+="شمعة "+(i+1)+","+a[i].join(",")+"\n";
+document.getElementById("data").value=s;
+}
+function run(){
+try{
+var lines=document.getElementById("data").value.trim().split(/\n/);
+var a=[];
+for(var i=1;i<lines.length;i++){
+var p=lines[i].split(",");
+if(p.length<5)continue;
+var n=p.slice(-4).map(Number);
+if(n.some(function(x){return !isFinite(x);}))continue;
+a.push({time:p.slice(0,-4).join(","),o:n[0],h:n[1],l:n[2],c:n[3]});
+}
+if(a.length<10)throw Error("أدخل 10 شموع صحيحة على الأقل.");
+var L=Number(document.getElementById("L").value);
+var R=Number(document.getElementById("R").value);
+var ratio=Number(document.getElementById("ratio").value);
+var highs=[],lows=[],rejects=[];
+for(i=L;i<a.length-R;i++){
+var hi=true,lo=true;
+for(var j=i-L;j<i+R+1;j++){
+if(j===i)continue;
+if(a[i].h<=a[j].h)hi=false;
+if(a[i].l>=a[j].l)lo=false;
+}
+if(hi)highs.push({i:i,p:a[i].h});
+if(lo)lows.push({i:i,p:a[i].l});
+}
+for(i=0;i<a.length;i++){
+var c=a[i],body=Math.abs(c.c-c.o);
+var range=c.h-c.l;
+if(body===0||range===0)continue;
+var upper=c.h-Math.max(c.o,c.c);
+var lower=Math.min(c.o,c.c)-c.l;
+if(c.c>c.o&&lower/body>=ratio&&lower/range>=.4)
+rejects.push("رفض صاعد عند "+c.time);
+if(c.c<c.o&&upper/body>=ratio&&upper/range>=.4)
+rejects.push("رفض هابط عند "+c.time);
+}
+var out="<h3>نتيجة التحليل</h3>";
+out+="عدد الشموع: "+a.length+"<br>";
+out+="القمم المكتشفة: "+highs.length+"<br>";
+out+="القيعان المكتشفة: "+lows.length+"<br>";
+out+="شموع الرفض: "+rejects.length+"<hr>";
+out+="<b>القمم:</b><br>";
+highs.forEach(function(x){out+="سعر "+x.p+" — الشمعة "+(x.i+1)+"<br>";});
+out+="<b>القيعان:</b><br>";
+lows.forEach(function(x){out+="سعر "+x.p+" — الشمعة "+(x.i+1)+"<br>";});
+out+="<b>الرفض:</b><br>";
+rejects.forEach(function(x){out+=x+"<br>";});
+out+="<hr><b>تنبيه:</b> هذه نتائج تحليل بيانات مدخلة وليست توصية دخول.";
+document.getElementById("result").innerHTML=out;
+}catch(e){document.getElementById("result").innerHTML=e.message;}
+}
+</script>
+</body>
+</html>
