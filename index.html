@@ -5,373 +5,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080b16">
 <title>ABOOD AI BOX SNIPER VIP</title>
 <style>
-:root{
---bg:#080b16;--card:#111a2b;--line:#263550;
---gold:#edbd59;--blue:#55a9ff;
---green:#20d69b;--red:#ff6078;
---text:#edf3ff;--muted:#92a3bd
-}
 *{box-sizing:border-box}
-body{
-margin:0;background:var(--bg);color:var(--text);
-font-family:Arial,sans-serif
-}
-header{
-padding:20px;background:linear-gradient(120deg,#17243b,#080b16);
-border-bottom:1px solid var(--line)
-}
-.brand{font-size:23px;font-weight:900;color:var(--gold)}
-.subtitle{font-size:12px;color:var(--muted);margin-top:7px}
-.status{color:var(--green);font-size:12px;margin-top:12px}
-nav{
-display:flex;gap:8px;overflow:auto;padding:12px;
-background:#0d1422
-}
-nav button{
-background:#19263b;color:white;border:1px solid var(--line);
-padding:10px 15px;border-radius:9px;white-space:nowrap
-}
-main{max-width:1200px;margin:auto;padding:14px}
-.grid{
-display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-gap:12px
-}
-.card{
-background:linear-gradient(145deg,#151f32,#0e1523);
-border:1px solid var(--line);border-radius:14px;
-padding:15px;margin-bottom:12px
-}
-h2{font-size:16px;margin:0 0 14px;color:var(--gold)}
-label{display:block;font-size:12px;color:var(--muted);margin-bottom:7px}
-input,select,textarea{
-width:100%;padding:12px;background:#080f1d;
-color:white;border:1px solid var(--line);
-border-radius:8px;margin-bottom:12px
-}
-textarea{height:150px;direction:ltr;text-align:left}
-button{cursor:pointer;font-weight:bold}
-.action{
-background:linear-gradient(120deg,#f5d17d,#bd862d);
-color:#17120a;border:0;border-radius:9px;
-padding:13px 17px
-}
-.secondary{
-background:#1b2b43;color:white;border:1px solid var(--line);
-border-radius:9px;padding:12px
-}
-.metrics{
-display:grid;grid-template-columns:repeat(3,1fr);gap:8px
-}
-.metric{
-background:#080f1d;padding:13px;border-radius:10px;
-border:1px solid var(--line)
-}
-.metric small{color:var(--muted);font-size:11px}
-.metric strong{display:block;font-size:22px;margin-top:8px}
-canvas{
-width:100%;height:230px;background:#080f1d;
-border:1px solid var(--line);border-radius:10px
-}
-.result{
-background:#080f1d;border:1px solid var(--line);
-border-radius:10px;padding:14px;line-height:2;
-min-height:100px
-}
-.green{color:var(--green)}
-.red{color:var(--red)}
-.gold{color:var(--gold)}
-footer{text-align:center;color:var(--muted);font-size:11px;padding:25px}
-@media(max-width:650px){
-.grid{grid-template-columns:1fr}
-.metric strong{font-size:18px}
-}
+body{margin:0;padding:16px;background:#080d19;color:#f5f5f5;font-family:Arial,sans-serif}
+header{text-align:center;padding:22px 10px;border-bottom:1px solid #b99348}
+h1{color:#e8bd62;font-size:25px;margin:5px}
+.sub{color:#aeb8c9;font-size:13px}
+.card{background:#131e30;border:1px solid #293a52;border-radius:14px;padding:16px;margin:14px 0}
+h2{font-size:17px;color:#e8bd62;margin:0 0 14px}
+label{display:block;color:#cbd5e1;margin:12px 0 6px;font-size:14px}
+input,select,textarea{width:100%;padding:12px;border-radius:9px;border:1px solid #40516a;background:#081323;color:white;font-size:15px}
+textarea{height:135px;direction:ltr;text-align:left;font-family:monospace}
+button{border:0;border-radius:9px;padding:13px;background:#d9ad51;color:#101522;font-weight:bold;font-size:15px;margin:5px 0;width:100%;cursor:pointer}
+.secondary{background:#293b54;color:white}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:#0a1424;padding:12px;border-radius:9px;text-align:center}
+.stat b{display:block;color:#e8bd62;font-size:21px;margin-top:7px}
+.result{padding:15px;border-radius:10px;text-align:center;background:#0a1424}
+.signal{font-size:25px;font-weight:bold;margin:10px}
+.muted{color:#aab6c8;font-size:13px;line-height:1.8}
+.good{color:#51d6a2}.bad{color:#ff7777}.gold{color:#e8bd62}
+ul{padding-right:20px;line-height:2}
+footer{text-align:center;color:#8491a5;font-size:12px;padding:18px}
 </style>
 </head>
 <body>
 
 <header>
-<div class="brand">👑 ABOOD AI BOX SNIPER VIP</div>
-<div class="subtitle">منصة التحليل الذكي للأسواق المالية</div>
-<div class="status">● محرك التحليل المحلي جاهز</div>
+<h1>ABOOD AI</h1>
+<div class="gold">BOX SNIPER VIP</div>
+<p class="sub">POCKET OPTION • OTC ANALYSIS ASSISTANT</p>
 </header>
 
-<nav>
-<button onclick="show('home')">الرئيسية</button>
-<button onclick="show('analysis')">التحليل</button>
-<button onclick="show('data')">بيانات الشموع</button>
-<button onclick="show('risk')">إدارة المخاطر</button>
-</nav>
-
-<main>
-
-<section id="home">
 <div class="card">
-<h2>لوحة التحكم الرئيسية</h2>
+<h2>⚙️ إعدادات التحليل</h2>
+<label>الأصل المالي</label>
+<select id="asset">
+<option>EUR/USD</option>
+<option>GBP/USD</option>
+<option>USD/JPY</option>
+<option>EUR/GBP</option>
+<option>Gold (XAU/USD)</option>
+<option>BTC/USD</option>
+<option>EUR/USD OTC</option>
+<option>GBP/USD OTC</option>
+<option>USD/JPY OTC</option>
+<option>Gold OTC</option>
+</select>
+
 <div class="grid">
 <div>
-<label>السوق</label>
-<select id="market">
-<option>XAUUSD - GOLD</option>
-<option>EURUSD</option>
-<option>GBPUSD</option>
-<option>USDJPY</option>
-<option>OTC</option>
+<label>فريم التحليل</label>
+<select id="mainTF">
+<option value="5">5 دقائق</option>
 </select>
 </div>
 <div>
-<label>الإطار الزمني</label>
-<select id="tf">
-<option>1 دقيقة</option>
-<option>5 دقائق</option>
-<option>15 دقيقة</option>
-<option>30 دقيقة</option>
-<option>1 ساعة</option>
-<option>4 ساعات</option>
+<label>فريم التأكيد</label>
+<select id="confirmTF">
+<option value="1">دقيقة واحدة</option>
 </select>
 </div>
 </div>
+
+<label>مدة الصفقة المطلوبة</label>
+<select id="expiry">
+<option value="30">30 ثانية</option>
+<option value="60">دقيقة واحدة</option>
+</select>
+<p class="muted">المنصة تحلل على فريم 5 دقائق وتستخدم بيانات الدقيقة للتأكيد. مدة الصفقة اختيار مستقل.</p>
 </div>
 
 <div class="card">
-<h2>محرك الذكاء الاصطناعي للتحليل</h2>
-<div class="metrics">
-<div class="metric"><small>عدد الشموع</small><strong id="count">0</strong></div>
-<div class="metric"><small>القمم</small><strong id="highs">0</strong></div>
-<div class="metric"><small>القيعان</small><strong id="lows">0</strong></div>
-</div>
+<h2>📊 بيانات شموع 5 دقائق</h2>
+<p class="muted">أدخل الشموع المغلقة بالترتيب: الوقت، الافتتاح، الأعلى، الأدنى، الإغلاق. كل شمعة في سطر.</p>
+<textarea id="data5" placeholder="time,open,high,low,close&#10;09:00,100,102,99,101&#10;09:05,101,103,100,102"></textarea>
+<button class="secondary" onclick="demo()">تحميل بيانات تجريبية</button>
 </div>
 
 <div class="card">
-<h2>مخطط حركة السعر</h2>
-<canvas id="chart" width="900" height="300"></canvas>
+<h2>⏱️ تأكيد شموع الدقيقة</h2>
+<p class="muted">أدخل بيانات شموع الدقيقة المغلقة بنفس الترتيب.</p>
+<textarea id="data1" placeholder="time,open,high,low,close&#10;09:20,101,102,100,101.5"></textarea>
 </div>
 
 <div class="card">
-<h2>نتيجة التحليل</h2>
+<h2>🧠 محرك التحليل</h2>
+<button onclick="analyze()">تشغيل تحليل ABOOD AI</button>
+<button class="secondary" onclick="clearAll()">مسح البيانات والنتائج</button>
+</div>
+
+<div class="card">
+<h2>📈 نتيجة التحليل</h2>
 <div id="result" class="result">
-بانتظار إدخال بيانات الشموع وتشغيل المحرك.
+<span class="muted">بانتظار إدخال البيانات وتشغيل التحليل</span>
 </div>
 </div>
-</section>
 
-<section id="analysis">
 <div class="card">
-<h2>محركات التحليل الفني</h2>
+<h2>📋 تفاصيل المحرك</h2>
 <div class="grid">
-<div class="metric"><small>محرك القمم والقيعان</small><strong class="gold">SWING</strong></div>
-<div class="metric"><small>محرك رفض الشموع</small><strong class="gold">REJECTION</strong></div>
-<div class="metric"><small>اتجاه الحركة</small><strong id="trend">—</strong></div>
-<div class="metric"><small>شموع الرفض</small><strong id="rejectCount">0</strong></div>
+<div class="stat">شموع 5 دقائق<b id="count5">0</b></div>
+<div class="stat">شموع الدقيقة<b id="count1">0</b></div>
+<div class="stat">القمم<b id="highs">0</b></div>
+<div class="stat">القيعان<b id="lows">0</b></div>
 </div>
+<div id="details" class="muted" style="margin-top:12px">لا توجد نتائج بعد.</div>
 </div>
-</section>
 
-<section id="data">
 <div class="card">
-<h2>إدخال بيانات OHLC</h2>
-<p style="font-size:12px;color:var(--muted)">
-الترتيب: الوقت، الافتتاح، الأعلى، الأدنى، الإغلاق.
-كل شمعة في سطر مستقل.
-</p>
-<textarea id="candles" placeholder="time,open,high,low,close"></textarea>
-<button class="secondary" onclick="demo()">بيانات تجريبية</button>
-<button class="secondary" onclick="clearData()">مسح البيانات</button>
-<button class="action" onclick="analyze()">تشغيل المحركين</button>
+<h2>🛡️ قواعد الحماية</h2>
+<ul class="muted">
+<li>لا توجد إشارة عند نقص البيانات.</li>
+<li>لا يتم اعتماد شمعة غير مغلقة.</li>
+<li>تعارض فريم 5 دقائق مع الدقيقة يعني عدم الدخول.</li>
+<li>لا توجد نسبة نجاح مضمونة.</li>
+<li>لا ينفذ البرنامج أي صفقة ولا يتصل بحساب Pocket Option.</li>
+</ul>
 </div>
-</section>
 
-<section id="risk">
-<div class="card">
-<h2>إدارة المخاطر</h2>
-<label>رأس المال بالدولار</label>
-<input id="capital" type="number" value="500">
-<label>نسبة المخاطرة %</label>
-<input id="riskPercent" type="number" value="1" step="0.1">
-<button class="action" onclick="riskCalc()">احسب المخاطرة</button>
-<div id="riskResult" class="result">أدخل رأس المال ونسبة المخاطرة.</div>
-</div>
-</section>
-
-</main>
-
-<footer>
-ABOOD AI BOX SNIPER VIP © 2026
-<br><br>
-منصة تحليل ومساعدة على اتخاذ القرار فقط.
-لا تنفذ صفقات ولا تضمن الأرباح.
-</footer>
+<footer>ABOOD AI BOX SNIPER VIP — Analysis Only</footer>
 
 <script>
-function show(id){
-document.querySelectorAll('main section').forEach(s=>s.style.display='none');
-document.getElementById(id).style.display='block';
-}
-show('home');
+function parseCandles(id){
+ const raw=document.getElementById(id).value.trim();
+ if(!raw) throw new Error("أدخل بيانات الشموع أولاً.");
+ const lines=raw.split(/\n/).map(x=>x.trim()).filter(Boolean);
+ const candles=[];
 
-const sample=[
-["09:00",100,102,99,101],
-["09:01",101,103,100,102],
-["09:02",102,105,101,104],
-["09:03",104,104.5,102,102.5],
-["09:04",102.5,103,100,101],
-["09:05",101,102,98,99],
-["09:06",99,100,97,98],
-["09:07",98,102,97.5,101],
-["09:08",101,104,100,103],
-["09:09",103,104,101,102],
-["09:10",102,106,101,105],
-["09:11",105,105.5,103,103.5],
-["09:12",103.5,104,101,102],
-["09:13",102,103,99,100],
-["09:14",100,101,98,99],
-["09:15",99,103,98,102]
-];
+ for(let i=0;i<lines.length;i++){
+   const p=lines[i].split(",").map(x=>x.trim());
+   if(i===0 && isNaN(Number(p[p.length-1]))) continue;
+   if(p.length<5) continue;
 
-function demo(){
-document.getElementById('candles').value=
-"time,open,high,low,close\n"+
-sample.map(x=>x.join(',')).join('\n');
-analyze();
+   const n=p.slice(-4).map(Number);
+   if(n.some(x=>!Number.isFinite(x))) continue;
+
+   const [o,h,l,c]=n;
+   if(h<Math.max(o,c,l)||l>Math.min(o,c,h)||h<l)
+     continue;
+
+   candles.push({time:p.slice(0,-4).join(","),o,h,l,c});
+ }
+ return candles;
 }
 
-function clearData(){
-document.getElementById('candles').value='';
-document.getElementById('result').textContent='تم مسح البيانات.';
-document.getElementById('count').textContent='0';
-document.getElementById('highs').textContent='0';
-document.getElementById('lows').textContent='0';
-document.getElementById('rejectCount').textContent='0';
-draw([]);
+function ema(values,period){
+ if(values.length<period) return null;
+ let result=values.slice(0,period).reduce((a,b)=>a+b,0)/period;
+ const k=2/(period+1);
+ for(let i=period;i<values.length;i++)
+   result=values[i]*k+result*(1-k);
+ return result;
 }
 
-function parse(){
-let lines=document.getElementById('candles').value.trim().split(/\n/);
-let data=[];
-lines.forEach((line,i)=>{
-let p=line.trim().split(/[,\t;]+/);
-if(i===0 && isNaN(Number(p[1])))return;
-if(p.length<5)return;
-let v=p.slice(-4).map(Number);
-if(v.some(x=>!Number.isFinite(x)))return;
-let [o,h,l,c]=v;
-if(h<Math.max(o,c,l)||l>Math.min(o,c))return;
-data.push({time:p.slice(0,-4).join(','),o,h,l,c});
-});
-return data;
+function trend(candles){
+ const closes=candles.map(x=>x.c);
+ if(closes.length<15) return "غير كافٍ";
+ const fast=ema(closes,5);
+ const slow=ema(closes,13);
+ if(fast===null||slow===null) return "غير كافٍ";
+ if(fast>slow && closes.at(-1)>fast) return "صاعد";
+ if(fast<slow && closes.at(-1)<fast) return "هابط";
+ return "جانبي";
+}
+
+function pivots(candles){
+ let highs=0,lows=0;
+ for(let i=2;i<candles.length-2;i++){
+  const c=candles[i];
+  if(c.h>candles[i-1].h && c.h>candles[i-2].h &&
+     c.h>candles[i+1].h && c.h>candles[i+2].h) highs++;
+  if(c.l<candles[i-1].l && c.l<candles[i-2].l &&
+     c.l<candles[i+1].l && c.l<candles[i+2].l) lows++;
+ }
+ return {highs,lows};
+}
+
+function rejection(candles){
+ const c=candles[candles.length-1];
+ const body=Math.abs(c.c-c.o);
+ const range=c.h-c.l;
+ if(range<=0 || body<=0) return "لا يوجد رفض واضح";
+ const upper=c.h-Math.max(c.o,c.c);
+ const lower=Math.min(c.o,c.c)-c.l;
+ if(lower/body>=1.8 && lower/range>=0.4 && c.c>c.o)
+   return "رفض صاعد";
+ if(upper/body>=1.8 && upper/range>=0.4 && c.c<c.o)
+   return "رفض هابط";
+ return "لا يوجد رفض واضح";
 }
 
 function analyze(){
-try{
-let a=parse();
-if(a.length<5)throw Error('أدخل خمس شموع صحيحة على الأقل.');
+ try{
+  const a=parseCandles("data5");
+  const b=parseCandles("data1");
 
-let highs=[],lows=[],rejects=[];
-let L=3,R=3,ratio=1.8;
+  document.getElementById("count5").textContent=a.length;
+  document.getElementById("count1").textContent=b.length;
 
-for(let i=L;i<a.length-R;i++){
-let hi=true,lo=true;
-for(let j=i-L;j<=i+R;j++){
-if(j===i)continue;
-if(a[i].h<=a[j].h)hi=false;
-if(a[i].l>=a[j].l)lo=false;
-}
-if(hi)highs.push(i);
-if(lo)lows.push(i);
-}
+  if(a.length<15) throw new Error("نحتاج 15 شمعة مغلقة على الأقل لفريم 5 دقائق.");
+  if(b.length<15) throw new Error("نحتاج 15 شمعة مغلقة على الأقل لفريم الدقيقة.");
 
-a.forEach((c,i)=>{
-let body=Math.abs(c.c-c.o);
-if(body===0)return;
-let upper=c.h-Math.max(c.o,c.c);
-let lower=Math.min(c.o,c.c)-c.l;
-if(lower/body>=ratio && c.c>c.o)
-rejects.push({i,type:'رفض صاعد'});
-if(upper/body>=ratio && c.c<c.o)
-rejects.push({i,type:'رفض هابط'});
-});
+  const t5=trend(a);
+  const t1=trend(b);
+  const p=pivots(a);
+  const r5=rejection(a);
+  const r1=rejection(b);
+  const expiry=Number(document.getElementById("expiry").value);
+  const asset=document.getElementById("asset").value;
 
-let last=a[a.length-1];
-let trend=last.c>last.o?'صاعد':'هابط';
+  document.getElementById("highs").textContent=p.highs;
+  document.getElementById("lows").textContent=p.lows;
 
-document.getElementById('count').textContent=a.length;
-document.getElementById('highs').textContent=highs.length;
-document.getElementById('lows').textContent=lows.length;
-document.getElementById('rejectCount').textContent=rejects.length;
-document.getElementById('trend').textContent=trend;
+  let signal="لا توجد فرصة";
+  let reason="الاتجاه غير واضح أو لا يوجد تأكيد كافٍ.";
+  let score=0;
 
-let out='<b>اكتمل التحليل</b><br>';
-out+='عدد الشموع: '+a.length+'<br>';
-out+='القمم المكتشفة: '+highs.length+'<br>';
-out+='القيعان المكتشفة: '+lows.length+'<br>';
-out+='شموع الرفض: '+rejects.length+'<br>';
-out+='اتجاه آخر شمعة: '+trend+'<br><br>';
-out+='<b>تفاصيل الرفض:</b><br>';
-out+=rejects.length?
-rejects.map(x=>x.type+' — '+a[x.i].time).join('<br>'):
-'لا توجد شموع رفض واضحة.';
-out+='<br><br><span class="gold">هذه قراءة فنية للبيانات المدخلة وليست إشارة تداول مؤكدة.</span>';
+  if(t5==="صاعد" && t1==="صاعد"){
+    if(r1==="رفض هابط") {
+      reason="الاتجاه العام صاعد لكن توجد شمعة رفض هابطة في الدقيقة.";
+    } else {
+      signal="صعود";
+      score=70;
+      reason="اتجاه فريم 5 دقائق صاعد ومتوافق مع فريم الدقيقة.";
+      if(r1==="رفض صاعد"){score=80;reason+=" مع وجود رفض صاعد.";}
+    }
+  } else if(t5==="هابط" && t1==="هابط"){
+    if(r1==="رفض صاعد") {
+      reason="الاتجاه العام هابط لكن توجد شمعة رفض صاعدة في الدقيقة.";
+    } else {
+      signal="هبوط";
+      score=70;
+      reason="اتجاه فريم 5 دقائق هابط ومتوافق مع فريم الدقيقة.";
+      if(r1==="رفض هابط"){score=80;reason+=" مع وجود رفض هابط.";}
+    }
+  } else {
+    reason="لا يوجد توافق بين فريم 5 دقائق وفريم الدقيقة.";
+  }
 
-document.getElementById('result').innerHTML=out;
-draw(a,highs,lows);
+  const cls=signal==="صعود"?"good":signal==="هبوط"?"bad":"gold";
+  document.getElementById("result").innerHTML=
+   '<div class="muted">الأصل: '+asset+'</div>'+
+   '<div class="signal '+cls+'">'+signal+'</div>'+
+   '<div>قوة توافق الشروط: <b>'+score+'%</b></div>'+
+   '<p class="muted">'+reason+'</p>'+
+   '<hr><div>مدة الصفقة المختارة: <b>'+expiry+' ثانية</b></div>'+
+   '<div class="muted">هذه نتيجة توافق قواعد التحليل وليست احتمال ربح مثبتاً.</div>';
 
-}catch(e){
-document.getElementById('result').textContent=e.message;
-}
-}
-
-function draw(a,highs=[],lows=[]){
-let canvas=document.getElementById('chart');
-let ctx=canvas.getContext('2d');
-let w=canvas.width,h=canvas.height;
-ctx.clearRect(0,0,w,h);
-ctx.strokeStyle='#263550';
-for(let y=30;y<h;y+=45){
-ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();
-}
-if(!a.length)return;
-let min=Math.min(...a.map(x=>x.l));
-let max=Math.max(...a.map(x=>x.h));
-let pad=(max-min)*.1||1;
-min-=pad;max+=pad;
-let y=v=>h-15-(v-min)/(max-min)*(h-30);
-let step=w/a.length;
-a.forEach((c,i)=>{
-let x=i*step+step/2;
-let color=c.c>=c.o?'#20d69b':'#ff6078';
-ctx.strokeStyle=color;ctx.fillStyle=color;
-ctx.beginPath();ctx.moveTo(x,y(c.h));ctx.lineTo(x,y(c.l));ctx.stroke();
-let top=y(Math.max(c.o,c.c));
-let bottom=y(Math.min(c.o,c.c));
-ctx.fillRect(x-step*.25,top,step*.5,Math.max(2,bottom-top));
-});
-highs.forEach(i=>{
-ctx.fillStyle='#edbd59';
-ctx.beginPath();ctx.arc(step*i+step/2,y(a[i].h)-8,4,0,Math.PI*2);ctx.fill();
-});
-lows.forEach(i=>{
-ctx.fillStyle='#55a9ff';
-ctx.beginPath();ctx.arc(step*i+step/2,y(a[i].l)+8,4,0,Math.PI*2);ctx.fill();
-});
+  document.getElementById("details").innerHTML=
+   "اتجاه 5 دقائق: <b>"+t5+"</b><br>"+
+   "اتجاه الدقيقة: <b>"+t1+"</b><br>"+
+   "رفض 5 دقائق: "+r5+"<br>"+
+   "رفض الدقيقة: "+r1+"<br>"+
+   "القمم: "+p.highs+" — القيعان: "+p.lows+"<br>"+
+   "المدة المختارة: "+expiry+" ثانية";
+ }catch(e){
+  document.getElementById("result").innerHTML=
+   '<span class="bad">'+e.message+'</span>';
+ }
 }
 
-function riskCalc(){
-let capital=Number(document.getElementById('capital').value);
-let percent=Number(document.getElementById('riskPercent').value);
-if(capital<=0||percent<=0||percent>100){
-document.getElementById('riskResult').textContent='تحقق من القيم المدخلة.';
-return;
-}
-let amount=capital*percent/100;
-document.getElementById('riskResult').innerHTML=
-'رأس المال: '+capital.toFixed(2)+' $<br>'+
-'المخاطرة المحددة: '+percent+'%<br>'+
-'<b class="gold">مبلغ المخاطرة: '+amount.toFixed(2)+' $</b>';
+function demo(){
+ const rows5=[
+ ["09:00",100,101,99,100.5],
+ ["09:05",100.5,102,100,101.5],
+ ["09:10",101.5,103,101,102.5],
+ ["09:15",102.5,104,102,103.5],
+ ["09:20",103.5,105,103,104.5],
+ ["09:25",104.5,106,104,105.5],
+ ["09:30",105.5,107,105,106.5],
+ ["09:35",106.5,108,106,107.5],
+ ["09:40",107.5,109,107,108.5],
+ ["09:45",108.5,110,108,109.5],
+ ["09:50",109.5,111,109,110.5],
+ ["09:55",110.5,112,110,111.5],
+ ["10:00",111.5,113,111,112.5],
+ ["10:05",112.5,114,112,113.5],
+ ["10:10",113.5,115,113,114.5],
+ ["10:15",114.5,116,114,115.5]
+ ];
+ const rows1=[];
+ let price=100;
+ for(let i=0;i<16;i++){
+   const o=price;
+   const c=o+0.5;
+   rows1.push(["10:"+String(i).padStart(2,"0"),o,c+0.5,o-0.2,c]);
+   price=c;
+ }
+ document.getElementById("data5").value=
+ "time,open,high,low,close\n"+
+ rows5.map(x=>x.join(",")).join("\n");
+ document.getElementById("data1").value=
+ "time,open,high,low,close\n"+
+ rows1.map(x=>x.join(",")).join("\n");
 }
 
-draw([]);
+function clearAll(){
+ document.getElementById("data5").value="";
+ document.getElementById("data1").value="";
+ document.getElementById("result").innerHTML="بانتظار إدخال البيانات وتشغيل التحليل";
+ document.getElementById("details").textContent="لا توجد نتائج بعد.";
+ ["count5","count1","highs","lows"].forEach(id=>document.getElementById(id).textContent="0");
+}
 </script>
 </body>
 </html>
